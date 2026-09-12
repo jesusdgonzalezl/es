@@ -1,6 +1,10 @@
 _site/
 .sass-cache/
+.jekyll-cache/
 .jekyll-metadata
-Gemfile.lock
-*.gem
-.jekyll-cache
+.bundle/
+vendor/
+node_modules/
+.pnpm-store/
+_preview/
+profile-source.html

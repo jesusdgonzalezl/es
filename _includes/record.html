@@ -1,0 +1,12 @@
+<article class="record {% if include.item.placeholder %}placeholder{% endif %}">
+{% if include.item.image %}<img class="record-image" src="{{ include.item.image | relative_url }}" alt="{{ include.item.image_alt | escape }}" loading="lazy">{% endif %}
+{% if include.item.placeholder %}<span class="eyebrow">Details to come</span>{% endif %}
+{% if include.item.label %}<span class="eyebrow">{{ include.item.label }}</span>{% endif %}
+{% if include.item.date and include.show_date and include.item.placeholder != true %}<time datetime="{{ include.item.date | date: '%Y-%m-%d' }}">{{ include.item.date | date: '%d %b %Y' }}</time>{% endif %}
+<h3>{{ include.item.name | default: include.item.title | escape }}</h3>
+{% if include.item.role %}<p class="meta">{{ include.item.role }}{% if include.item.term %} · {{ include.item.term }}{% endif %}</p>{% endif %}
+<div class="prose">{{ include.item.content | markdownify }}</div>
+{% if include.item.topics %}<ul class="tags">{% for topic in include.item.topics %}<li>{{ topic }}</li>{% endfor %}</ul>{% endif %}
+{% for link in include.item.links %}<a class="text-link" href="{{ link.url | relative_url }}">{{ link.label }} ↗</a>{% endfor %}
+{% include gallery.html images=include.item.gallery %}
+</article>

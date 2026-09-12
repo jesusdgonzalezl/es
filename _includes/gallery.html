@@ -1,0 +1,7 @@
+{% if include.images.size > 0 %}
+<div class="gallery">
+{% for photo in include.images %}<figure>
+<a href="{{ photo.file | relative_url }}"><img src="{{ photo.file | relative_url }}" alt="{{ photo.alt | escape }}" loading="lazy" width="900" height="600"></a>
+{% if photo.caption %}<figcaption>{{ photo.caption | escape }}</figcaption>{% endif %}
+</figure>{% endfor %}
+</div>{% endif %}

@@ -1,90 +1,74 @@
-# Spectral - Jekyll Theme
+# Space Systems & Energy
 
-A Jekyll version of the "Spectral" theme by [HTML5 UP](https://html5up.net/).
+A responsive, Markdown-driven Jekyll website for Jesus David Gonzalez Llorente. The group name is provisional. The original personal website is unchanged.
 
-![Spectral Theme](screenshot.jpg "Spectral Theme")
+## Publish from main
 
-# How to Use
+Uses GitHub Pages' built-in Jekyll build: no custom plugins, Node build, or external theme.
 
-For those unfamiliar with how Jekyll works, check out [https://jekyllrb.com/](https://jekyllrb.com/) for all the details,
-or read up on just the basics of [front matter](https://jekyllrb.com/docs/frontmatter/), [writing posts](https://jekyllrb.com/docs/posts/),
-and [creating pages](https://jekyllrb.com/docs/pages/).
+1. Commit and push this repository to `main`.
+2. In GitHub **Settings → Pages**, select **Deploy from a branch**, **main**, **/ (root)**.
+3. Keep `url: "https://jesusdgonzalezl.github.io"` and `baseurl: "/es"` for the project URL. For a domain root use `baseurl: ""`. Change `url` for another host.
 
-- **GitLab**: Simply fork this repository and start editing the `_config.yml` file!  
-- **GitHub**: Fork this reposity and create a branch named `gh-pages`, then start editing the `_config.yml` file! The `.gitlab-ci.yml` file is only needed for GitLab Pages, so feel free to delete this if you are using GitHub instead.
+No push or publication was performed. Old demo pages, posts, and theme package are excluded. The previous license remains for inherited assets.
 
-# Added Features
+## Configuration and content
 
-* Add your **social profiles** easily in `_config.yml`. Only social profiles buttons you enter in `config.yml` show up on the site footer!
-* **Coming soon**: Set **featured images** in front matter.
-* **Coming soon**: Front page sections automatically pull from posts.
+`_config.yml` controls names, professor details, degrees, contact and academic links, navigation order, visibility, palette, typography, homepage options, and GitHub Pages path. Restart Jekyll after config changes. Fonts use local system stacks.
 
-# Issues
+- Reorder `navigation` to reorder navigation and sections. Hide with `enabled: false`, or remove the entry. Home buttons disappear if their target is disabled.
+- Introductory Markdown is in `content/_sections/`, matched by `section_id`.
+- Add a section with a Markdown introduction and matching navigation entry using `kind: cards`. An introduction-only section needs no collection.
+- For a new collection, declare it under `collections`, add `collection: collection_name` to navigation, and create `content/_collection_name/`.
+- Jekyll requires underscores in `content/_students/student-name.md` and `content/_publications/year-short-name.md`. Each record has its own file.
+- Record fields: `title` or `name`, `role`, `term`, `order`, `date`, `topics`, `links`, `image`, `image_alt`, `gallery`, and `published: false` for drafts.
+- Publications use `title`, `authors`, `year`, `type`, `venue`, `link`. The full bibliography works without JavaScript. With JavaScript it is initially shortened and searchable by text and type.
+- Research, news, teaching, and opportunities are separate collections. Use `order` for card ordering.
+- Copy examples from `templates/` into a collection and set `published: true` when ready.
 
-If you would like to report a bug, ask a question, request a feature, feel free to do so on [the GitLab repository](https://gitlab.com/andrewbanchich/spectral-jekyll-theme) and I will be more than happy to help!
+## Photos and galleries
 
-Alternatively, you can open an issue via email by emailing [incoming+andrewbanchich/spectral-jekyll-theme@incoming.gitlab.com](mailto:incoming+andrewbanchich/spectral-jekyll-theme@incoming.gitlab.com).
+Use `assets/images/people/`, `research/`, `news/`, and `activities/`. Reference site-root paths **without** `/es`; templates add the configured prefix.
 
-The GitHub repository is simply a mirror of the GitLab repository.
-
-# Credits
-
-Original README from HTML5 UP:
-
-```
-Spectral by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-
-
-A big, modern, blocky affair with a mobile-style menu, fully responsive styling,
-and an assortment of pre-styled elements. So, pretty much what you were expecting
--- except, of course, for how it's put together, specifically:
-
-- It's built on Skel 3*, a leaner, more modular rewrite of my responsive framework.
-
-  (* = still in development as of this writing)
-
-- It uses flexbox*, which eliminates all kinds of terrible hacks and clunky layout
-  stopgaps (like CSS grid systems).
-
-  (* = not supported on IE8/9, but non-flexbox fallbacks are included)
-
-- It uses Sass* a lot more intelligently, thanks in part to several new mixins
-  and functions I've been working on (as well as a few by @HugoGiraudel).
-
-  (* = still entirely optional if you prefer vanilla CSS :)
-
-- A ton of other stuff.
-
-In short, Spectral's the culmination of several new things I'm working on/trying out,
-so please, let me know what you think :)
-
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
-
-(* = not included)
-
-AJ
-aj@lkn.io | @ajlkn
-
-
-Credits:
-
-	Demo Images:
-		Unsplash (unsplash.com)
-
-	Icons:
-		Font Awesome (fortawesome.github.com/Font-Awesome)
-
-	Other:
-		jQuery (jquery.com)
-		html5shiv.js (@afarkas @jdalton @jon_neal @rem)
-		background-size polyfill (github.com/louisremi)
-		Misc. Sass functions (@HugoGiraudel)
-		Respond.js (j.mp/respondjs)
-		Skel (skel.io)
-
+```yaml
+image: /assets/images/research/project.jpg
+image_alt: Describe the equipment shown
+gallery:
+  - file: /assets/images/activities/workshop.jpg
+    alt: Students assembling a satellite prototype at a workbench
+    caption: Workshop title, date, and photographer credit
 ```
 
-Repository [Jekyll logo](https://github.com/jekyll/brand) icon licensed under a [Creative Commons Attribution 4.0 International License](http://choosealicense.com/licenses/cc-by-4.0/).
+Galleries work on any record or section introduction, with responsive grids, captions, and full-size links. Add descriptive alt text and compress images. The portrait comes from the original site; the orbital SVG is an original conceptual illustration.
+
+## Content provenance
+
+- Official source: https://www.etsmtl.ca/en/study-at-ets/professors/jgonzalez-llorente (September 12, 2026).
+- Identity, degrees, department, email, expertise, supervision, and bibliography come from this profile. The biography summarizes these facts.
+- Scholar, ORCID, LinkedIn, and portrait come from the existing personal site.
+- Saavan Ravindranath's summer 2026 supervision is in the source; current group membership is unconfirmed.
+- Replace the provisional group name/status in `_config.yml` and the marked news/teaching placeholders. No funding, openings, or events have been invented.
+- `scripts/import-publications.py` imports a locally saved official profile, preserving existing files. Review imported metadata before publishing.
+
+## Local preview
+
+Install Ruby and Bundler, then run:
+
+```sh
+bundle install
+bundle exec jekyll serve --host 127.0.0.1
+```
+
+Open http://127.0.0.1:4000/es/. Production build:
+
+```sh
+bundle exec jekyll build --strict_front_matter
+```
+
+Includes mobile navigation, focus indicators, a skip link, reduced motion, and a JavaScript-free fallback. Recheck accessibility after customizing colors or fonts.
+
+## Verification performed
+
+The visual fixture passed browser checks at 375, 768, and 1440 pixels: no horizontal overflow, publication search/type filtering/expansion, mobile menu and Escape behavior, image loading, no JavaScript errors, and all 54 publications visible without JavaScript.
+
+**A native Jekyll build has not been run:** Ruby was unavailable and WSL/dependency access was declined. Run the production build above before publishing. `scripts/visual-check.py` makes an approximate visual fixture using the actual CSS/JS/content, not a Liquid compiler. `scripts/check-browser.cjs` checks that fixture with an installed Playwright and Chrome; optionally set `PLAYWRIGHT_MODULE` to its module path. These development scripts and `_preview/` are excluded from deployment.

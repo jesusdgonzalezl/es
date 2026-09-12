@@ -1,28 +1,96 @@
-# Site settings
-title: Spectral
-email: youremailaddress@gmail.com
-description: The Jekyll version of the Spectral theme by HTML5 UP.
-baseurl: "/es" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site
-
-# Homepage tiles
-tiles-source: posts # accepts "posts" or "pages"
-tiles-count: 3
-
-# Misc settings
-featured-image-source:
-
-# Social settings
-500px_url:
-facebook_url:
-github_url:
-gitlab_url: https://gitlab.com/u/andrewbanchich
-googleplus_url: https://plus.google.com/u/0/+AndrewBanchich
-instagram_url:
-linkedin_url: https://www.linkedin.com/in/andrew-banchich-a4ba1195
-pinterest_url:
-slack_url:
-twitter_url: https://twitter.com/andrewbanchich
-
-# Build settings
+title: Jesus David Gonzalez Llorente
+description: Space systems, intelligent autonomy, and energy research at ÉTS Montréal.
+url: "https://jesusdgonzalezl.github.io"
+baseurl: "/es"
+lang: en
 markdown: kramdown
+permalink: pretty
+timezone: America/New_York
+group:
+  name: Space Systems & Energy
+  short_name: SS / E
+  status: Working research-group name — replace when confirmed.
+professor:
+  name: Jesus David Gonzalez Llorente
+  role: Professor
+  department: Department of Aerospace Engineering
+  institution: École de technologie supérieure
+  location: Montréal, Québec, Canada
+  email: Jesus-David.Gonzalez-Llorente@etsmtl.ca
+  portrait: /assets/images/people/jesus-david-gonzalez.png
+  portrait_alt: Jesus David Gonzalez Llorente
+  profile: https://www.etsmtl.ca/en/study-at-ets/professors/jgonzalez-llorente
+  degrees:
+    - degree: B.Eng.
+      institution: UNAL, Colombia
+    - degree: M.Sc.
+      institution: UPRM, Puerto Rico
+    - degree: Ph.D.
+      institution: Kyutech, Japan
+social:
+  - label: Google Scholar
+    url: https://scholar.google.com/citations?user=pBC8EsoAAAAJ
+  - label: ORCID
+    url: https://orcid.org/0000-0001-6525-7657
+  - label: LinkedIn
+    url: https://www.linkedin.com/in/jesus-gonzalez-llorente/
+theme_settings:
+  accent: "#c82032"
+  ink: "#17191b"
+  background: "#f5f4f0"
+  muted: "#595d61"
+  heading_font: "'Arial', 'Helvetica Neue', sans-serif"
+  body_font: "'Segoe UI', Arial, sans-serif"
+homepage:
+  eyebrow: ÉTS MONTRÉAL / AEROSPACE ENGINEERING
+  headline: Engineering what comes next.
+  highlighted_word: Beyond Earth.
+  show_orbit: true
+  primary_label: Explore the research
+  primary_target: research
+  secondary_label: Meet the professor
+  secondary_target: people
+  publication_limit: 5
+  footer_note: Independent academic research website. Not an official ÉTS website.
+# Reorder this list to reorder the page and navigation. A custom section only
+# needs an entry here and a matching Markdown file in content/_sections/.
+navigation:
+  - { id: home, title: Home, enabled: true, kind: home }
+  - { id: research, title: Research, enabled: true, kind: research, collection: research }
+  - { id: people, title: People, enabled: true, kind: people, collection: students }
+  - { id: publications, title: Publications, enabled: true, kind: publications, collection: publications }
+  - { id: news, title: News, enabled: true, kind: cards, collection: news, show_dates: true }
+  - { id: teaching, title: Teaching, enabled: true, kind: cards, collection: teaching }
+  - { id: opportunities, title: Opportunities, enabled: true, kind: cards, collection: opportunities }
+  - { id: contact, title: Contact, enabled: true, kind: contact }
+collections_dir: content
+collections:
+  sections: { output: false }
+  students: { output: false }
+  publications: { output: false }
+  research: { output: false }
+  news: { output: false }
+  teaching: { output: false }
+  opportunities: { output: false }
+defaults:
+  - scope: { path: "", type: publications }
+    values: { published: true }
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - scripts
+  - templates
+  - profile-source.html
+  - package.json
+  - package-lock.json
+  - node_modules
+  - _preview
+  - pnpm-lock.yaml
+  - generic.md
+  - elements.md
+  - _posts
+  - screenshot.jpg
+  - spectral_jekyll_theme.gemspec
+  - CONTRIBUTING.md
+  - CHANGELOG
