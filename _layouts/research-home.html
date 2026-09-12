@@ -22,7 +22,13 @@
 <main id="main">
 {% for section in sections %}
 {% assign intro = site.sections | where: 'section_id', section.id | first %}
-{% assign records = site[section.collection] | where_exp: 'item', 'item.published != false' | sort: 'order' %}
+{% assign records = '' | split: ',' %}
+{% if section.collection %}
+{% assign collection_records = site[section.collection] %}
+{% if collection_records %}
+{% assign records = collection_records | where_exp: 'item', 'item.published != false' | sort: 'order' %}
+{% endif %}
+{% endif %}
 {% if section.kind == 'home' %}
 <section id="{{ section.id }}" class="hero">
 <div class="hero-copy"><p class="eyebrow"><span class="red-dot"></span>{{ site.homepage.eyebrow }}</p>
