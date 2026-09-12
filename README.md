@@ -23,6 +23,7 @@ No push or publication was performed. Old demo pages, posts, and theme package a
 - Jekyll requires underscores in `content/_students/student-name.md` and `content/_publications/year-short-name.md`. Each record has its own file.
 - Record fields: `title` or `name`, `role`, `term`, `order`, `date`, `topics`, `links`, `image`, `image_alt`, `gallery`, and `published: false` for drafts.
 - Publications use `title`, `authors`, `year`, `type`, `venue`, `link`. The full bibliography works without JavaScript. With JavaScript it is initially shortened and searchable by text and type.
+- Publication links use `https://doi.org/` URLs. Set `doi` to the identifier and `link` to its full DOI URL after verification. If no DOI is verified, keep both blank; the title remains visible without a link. `source_url` retains provenance without appearing as the publication link. See `scripts/doi-review.md` for unresolved entries. New imports leave links blank until verified, and preserve existing records.
 - Research, news, teaching, and opportunities are separate collections. Use `order` for card ordering.
 - Copy examples from `templates/` into a collection and set `published: true` when ready.
 
