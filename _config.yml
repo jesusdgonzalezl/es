@@ -63,6 +63,19 @@ navigation:
   - { id: teaching, title: Teaching, enabled: true, kind: cards, collection: teaching }
   - { id: opportunities, title: Opportunities, enabled: true, kind: cards, collection: opportunities }
   - { id: contact, title: Contact, enabled: true, kind: contact }
+people:
+  heading: Students & researchers
+  description: Explore the people working across our research areas.
+  roles:
+    - PhD student
+    - Master of Science student
+    - Master of Engineering student
+    - Intern
+    - Postdoc
+  statuses:
+    - { id: current, label: Current member }
+    - { id: alumni, label: Alumni }
+    - { id: unconfirmed, label: Status to confirm }
 collections_dir: content
 collections:
   sections: { output: false }

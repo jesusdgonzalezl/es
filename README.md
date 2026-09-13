@@ -29,6 +29,33 @@ No push or publication was performed. Old demo pages, posts, and theme package a
 
 ## Photos and galleries
 
+### Adding students and researchers
+
+Copy `templates/student.md` to `content/_students/first-last.md` for each person. The directory supports PhD students, Master of Science students, Master of Engineering students, interns, and postdocs. Add as many individual files as needed; the responsive grid is designed for groups of 16 or more.
+
+```yaml
+name: Full Name
+role: Master of Science student
+status: current
+term: "2026–present"
+order: 2
+published: true
+image: /assets/images/people/first-last.jpg
+image_alt: Portrait of Full Name
+topics: [Spacecraft power, Energy storage]
+links:
+  - label: Website
+    url: https://example.org
+```
+
+Put a short biography below the closing front-matter `---`. Upload a square portrait to `assets/images/people/`. Portraits are cropped from the top to keep faces visible. Leave `image: ""` until a portrait is available; the card displays a photo placeholder. Every visible card includes its name, role, membership badge, optional dates, biography, topics, and links.
+
+When someone leaves, change `status` to `alumni` and update `term`, for example `"2023–2026"`. Use `unconfirmed` if membership has not yet been verified. The existing supervision entry remains unconfirmed. No sample members are published.
+
+The directory combines search, role, and membership filters, shows the number of matches, and includes a clear-filters button. Search ignores accents and searches biographies/topics as well as names. All people remain visible when JavaScript is unavailable. Change the directory heading, role choices, and membership labels under `people` in `_config.yml`; custom role values in records are also added to the filter automatically.
+
+The 16-person visual fixture was checked at desktop, 768px, and 375px widths, including combined filters, accent-insensitive search, empty results, and reset. It tests CSS and JavaScript; native Jekyll compilation still requires the Ruby setup described below.
+
 Use `assets/images/people/`, `research/`, `news/`, and `activities/`. Reference site-root paths **without** `/es`; templates add the configured prefix.
 
 ```yaml

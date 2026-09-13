@@ -4,3 +4,31 @@
 @media(max-width:850px){.header-inner{flex-wrap:wrap;padding:16px 5%}.menu-toggle{display:flex;align-items:center;gap:15px;background:none;border:1px solid #bfc1bd;padding:7px 12px;font-size:12px}nav{width:100%;display:grid;grid-template-columns:repeat(4,1fr);padding-top:10px}nav a{padding:7px 0}html.js nav:not(.is-open){display:none}.hero{grid-template-columns:1fr 0.8fr;padding:40px 5% 0}h1{font-size:3.5rem}.hero-art{margin-right:-65px}.hero-copy>.eyebrow{font-size:9px}.hero-description{font-size:16px}.actions{gap:18px}.section{padding:65px 5%}.section-heading{grid-template-columns:1fr;gap:10px}.section-label{margin-bottom:10px}.professor{grid-template-columns:0.9fr 1.1fr;gap:30px}.degrees{flex-wrap:wrap;gap:15px}.portrait-wrap img{height:370px}.contact-grid{gap:30px}footer{flex-wrap:wrap}}
 @media(max-width:600px){h1{font-size:3.65rem}.hero{display:flex;flex-direction:column}.hero-copy{padding-bottom:5px}.hero-art{width:100%;max-width:430px;align-self:center;margin:-5px 0 0}.hero-art img{max-height:360px}.hero-bottom{font-size:8px;gap:20px}.hero-bottom>span:last-child{max-width:130px;text-align:right}.hero-bottom>span:last-child span{margin-left:8px}.research-grid,.cards{grid-template-columns:1fr}.research-grid .record{border-right:1px solid #cdcec9;min-height:0;padding:28px}.research-grid .record+.record{border-top:0}.research-grid .record:before{margin-bottom:20px}.professor{grid-template-columns:1fr}.portrait-wrap{width:100%;max-width:360px}.professor-copy h3{font-size:2.5rem}.subheading{display:block;margin-top:40px;margin-bottom:20px}.publication{grid-template-columns:48px 1fr;gap:15px}.publication h3{font-size:19px}.publication-tools{flex-wrap:wrap}.publication-tools label{min-width:160px}.publication-tools #publication-count{width:100%;padding:0}.contact-grid{grid-template-columns:1fr}nav{grid-template-columns:repeat(2,1fr)}footer{padding:35px 5%;display:block}footer>div{margin:25px 0}.record{padding:25px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Portrait directory: four columns for a growing group, two on tablet. */
+.people-filters{display:grid;grid-template-columns:2fr 1.4fr 1.2fr auto;gap:16px;align-items:end;border-top:1px solid #c7c8c2;padding-top:24px;margin-top:18px}
+.people-filters label{font-size:11px;font-weight:650;min-width:0}
+.people-filters input,.people-filters select{display:block;width:100%;min-height:46px;padding:10px 12px;margin-top:8px;border:1px solid #bfc1bd;background:var(--paper);color:var(--ink);font-size:14px;border-radius:0}
+.people-reset{min-height:46px;border:1px solid #bfc1bd;background:transparent;padding:10px 15px;color:var(--ink);font-size:12px;cursor:pointer}
+.people-reset:hover{background:var(--paper)}
+.people-count{color:var(--muted);font-size:12px;margin:15px 0 24px}
+.people-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;align-items:start;margin-top:24px}
+.person-card{min-width:0;background:var(--paper);border:1px solid #cdcec9}
+.person-portrait{position:relative;aspect-ratio:1;background:#d9dcd3;overflow:hidden}
+.person-portrait>img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.person-placeholder{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#e5e7df,#d2d6ca);color:#737c6d}
+.person-placeholder>span{font:700 76px/1 var(--heading);letter-spacing:-.06em}
+.person-placeholder>small{font-size:10px;letter-spacing:.08em;margin-top:12px}
+.person-status{position:absolute;bottom:14px;left:14px;right:14px;width:fit-content;max-width:calc(100% - 28px);background:var(--paper);border:1px solid #a5ada0;padding:5px 10px;font-size:10px;font-weight:650;line-height:1.5;color:var(--ink)}
+.person-status[data-membership=current]{background:#e8eee3;color:#314a2a;border-color:#a8b59c}
+.person-status[data-membership=alumni]{background:#ece9e5;color:#58534c;border-color:#b7b0a7}
+.person-info{padding:22px}
+.person-role{font-size:10px;line-height:1.5;text-transform:uppercase;letter-spacing:.07em;font-weight:700;color:var(--accent);margin-bottom:10px}
+.person-info h4{font:700 23px/1.12 var(--heading);letter-spacing:-.04em;margin:0 0 12px;overflow-wrap:anywhere}
+.person-term{font-size:11px;color:var(--muted);margin-bottom:15px}
+.person-bio{font-size:13px;line-height:1.65;color:var(--muted);overflow-wrap:anywhere}
+.person-bio p:last-child{margin-bottom:0}.person-card .tags{gap:5px;margin-top:18px}.person-card .tags li{font-size:9px}.person-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}.person-links .text-link{font-size:11px}
+.people-empty{padding:28px;border:1px dashed #aeb3a7;color:var(--muted);font-size:14px}
+@media(max-width:1100px){.people-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.people-filters{grid-template-columns:2fr 1.5fr 1.3fr}.people-reset{grid-column:1/-1;justify-self:start}}
+@media(max-width:850px){.people-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.people-filters{grid-template-columns:repeat(2,minmax(0,1fr))}.people-filters label:first-child{grid-column:1/-1}.people-reset{grid-column:auto;justify-self:stretch}.people-directory .subheading{display:block}.person-info{padding:20px}}
+@media(max-width:480px){.people-grid{grid-template-columns:1fr;gap:24px}.people-filters{grid-template-columns:1fr}.people-filters label:first-child{grid-column:auto}.person-portrait{aspect-ratio:6/5}.person-info{padding:24px}.person-info h4{font-size:26px}.person-bio{font-size:14px}}

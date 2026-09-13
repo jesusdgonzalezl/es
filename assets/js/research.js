@@ -35,3 +35,40 @@ if (list) {
  search.addEventListener('input', filter); type.addEventListener('change', filter);
  more.addEventListener('click', () => { expanded = !expanded; filter(); }); filter();
 }
+
+// Each directory is independent; filters combine and do not require a server.
+document.querySelectorAll('[data-people-directory]').forEach(directory => {
+ const cards = [...directory.querySelectorAll('[data-person]')];
+ const search = directory.querySelector('[data-people-search]');
+ const role = directory.querySelector('[data-people-role]');
+ const status = directory.querySelector('[data-people-status]');
+ const count = directory.querySelector('[data-people-count]');
+ const empty = directory.querySelector('[data-people-empty]');
+ const normalize = text => text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase();
+ const searchable = new Map(cards.map(card => [card, normalize(card.textContent)]));
+ // Include custom roles/statuses as well as the choices in the site configuration.
+ [[role, 'role'], [status, 'status']].forEach(([select, key]) => {
+  [...new Set(cards.map(card => card.dataset[key]))].filter(value => value && ![...select.options].some(option => option.value === value)).forEach(value => {
+   const option = document.createElement('option'); option.value = value; option.textContent = value; select.append(option);
+  });
+ });
+ function filterPeople() {
+  const words = normalize(search.value.trim()).split(/\s+/).filter(Boolean);
+  let visible = 0;
+  cards.forEach(card => {
+   const matches = words.every(word => searchable.get(card).includes(word)) && (role.value === 'all' || card.dataset.role === role.value) && (status.value === 'all' || card.dataset.status === status.value);
+   card.hidden = !matches; if (matches) visible++;
+  });
+  count.textContent = `${visible} of ${cards.length} people`;
+  empty.hidden = visible > 0 || cards.length === 0;
+ }
+ if (cards.length) directory.querySelector('.people-filters').hidden = false;
+ count.hidden = false;
+ search.addEventListener('input', filterPeople);
+ role.addEventListener('change', filterPeople);
+ status.addEventListener('change', filterPeople);
+ directory.querySelector('[data-people-reset]').addEventListener('click', () => {
+  search.value = ''; role.value = 'all'; status.value = 'all'; filterPeople(); search.focus();
+ });
+ filterPeople();
+});

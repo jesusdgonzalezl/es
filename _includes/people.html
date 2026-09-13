@@ -1,0 +1,21 @@
+<div class="people-directory" data-people-directory>
+  <div class="subheading"><h3>{{ site.people.heading | default: 'Students & researchers' | escape }}</h3><span>{{ site.people.description | escape }}</span></div>
+  <div class="people-filters" hidden>
+    <label for="{{ include.section_id }}-search">Search people
+      <input id="{{ include.section_id }}-search" data-people-search type="search" placeholder="Name or research topic" aria-controls="{{ include.section_id }}-grid">
+    </label>
+    <label for="{{ include.section_id }}-role">Role
+      <select id="{{ include.section_id }}-role" data-people-role aria-controls="{{ include.section_id }}-grid"><option value="all">All roles</option>{% for role in site.people.roles %}<option value="{{ role | escape }}">{{ role | escape }}</option>{% endfor %}</select>
+    </label>
+    <label for="{{ include.section_id }}-status">Membership
+      <select id="{{ include.section_id }}-status" data-people-status aria-controls="{{ include.section_id }}-grid"><option value="all">All members</option>{% for status in site.people.statuses %}<option value="{{ status.id | escape }}">{{ status.label | escape }}</option>{% endfor %}</select>
+    </label>
+    <button type="button" class="people-reset" data-people-reset>Clear filters</button>
+  </div>
+  <p class="people-count" data-people-count role="status" aria-live="polite" hidden></p>
+  <div id="{{ include.section_id }}-grid" class="people-grid">
+    {% for person in include.records %}{% include person.html person=person %}{% endfor %}
+  </div>
+  <p class="people-empty" data-people-empty hidden>No people match these filters. Try another name, role, or membership status.</p>
+  {% if include.records.size == 0 %}<p class="people-empty">Member profiles will be added here.</p>{% endif %}
+</div>
